@@ -4,3 +4,13 @@ server:
 com:
   czy:
     name: spring-boot-demo
+    password: ENC(0XEZz/020e6q8xT1Bk71qA==)
+
+jasypt:
+  encryptor:
+    #加解密的密码
+    password: key-czy
+    #jasypt默认更改了算法，如果不指定那么会报错：failed to bind properties under 'spring.datasource.druid.password' to java.lang.String
+    #解决办法：①把版本降到2.x②指定加密方法，如下
+    algorithm: PBEWithMD5AndDES
+    iv-generator-classname: org.jasypt.iv.NoIvGenerator

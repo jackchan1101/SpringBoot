@@ -14,7 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "com.czy")
 public class MyProperties {
 
-    //项目名称
+    //名称
     private String name;
 
+    //加密密码
+    private String password;
 }
