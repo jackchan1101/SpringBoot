@@ -18,6 +18,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<fastjson.version>1.2.79</fastjson.version>
+		<hutool.version>5.7.22</hutool.version>
 	</properties>
 	
 	<dependencies>
@@ -29,6 +30,11 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- 配置元数据 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
 		</dependency>
 		<!-- 阿里JSON解析器 -->
 		<dependency>
@@ -45,7 +51,7 @@
 		<dependency>
 			<groupId>cn.hutool</groupId>
 			<artifactId>hutool-all</artifactId>
-			<version>5.7.22</version>
+			<version>${hutool.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

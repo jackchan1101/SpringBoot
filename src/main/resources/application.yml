@@ -1,2 +1,6 @@
 server:
   port: 8082
+
+com:
+  czy:
+    name: spring-boot-demo
