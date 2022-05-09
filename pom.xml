@@ -20,6 +20,7 @@
 		<fastjson.version>1.2.79</fastjson.version>
 		<hutool.version>5.7.22</hutool.version>
 		<jasypt.version>3.0.3</jasypt.version>
+		<knife4j.version>3.0.2</knife4j.version>
 	</properties>
 	
 	<dependencies>
@@ -47,6 +48,17 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson.version}</version>
+		</dependency>
+		<!-- Swagger -->
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>knife4j-micro-spring-boot-starter</artifactId>
+			<version>${knife4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.xiaoymin</groupId>
+			<artifactId>knife4j-spring-boot-starter</artifactId>
+			<version>${knife4j.version}</version>
 		</dependency>
 		<!--aop-->
 		<dependency>
