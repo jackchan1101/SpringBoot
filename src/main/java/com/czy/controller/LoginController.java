@@ -40,12 +40,17 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String redirectIndex() {
         return "redirect:/index";
     }
 
-    @RequestMapping("/index")
+    @GetMapping("/403")
+    public String forbid() {
+        return "403";
+    }
+
+    @GetMapping("/index")
     public String index(Model model) {
         UserInfo user = (UserInfo) SecurityUtils.getSubject().getPrincipal();
         model.addAttribute("user", user);

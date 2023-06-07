@@ -1,9 +1,11 @@
 package com.czy.controller;
  
 import com.czy.service.UserService;
+import com.czy.util.MD5Utils;
 import com.czy.util.UserInfoUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +32,8 @@ public class UserController
         com.czy.entity.UserInfo userInfo = userService.getUserById(1);
         userInfoUtil = new UserInfoUtil(userInfo);
     }
- 
+
+    @RequiresPermissions("user:user")
     @ApiOperation(value = "获取用户信息")
     @GetMapping("getUserById")
     public ModelAndView getUserById(int userId)
@@ -50,6 +53,7 @@ public class UserController
         return modelAndView;
     }
 
+    @RequiresPermissions("user:user")
     @ApiOperation(value = "获取用户信息")
     @GetMapping("getUserInfo")
     public ModelAndView getUserInfo()
@@ -68,7 +72,8 @@ public class UserController
         modelAndView.setViewName("/user-info.html");
         return modelAndView;
     }
- 
+
+    @RequiresPermissions("user:add")
     @ApiOperation(value = "新增用户")
     @ResponseBody
     @PostMapping("insertUser")
@@ -77,7 +82,7 @@ public class UserController
         //创建新用户
         com.czy.entity.UserInfo userInfo = new com.czy.entity.UserInfo();
         userInfo.setUserName("chenzy");
-        userInfo.setPassword("123456");
+        userInfo.setPassword(MD5Utils.encrypt(userInfo.getUserName(), "123456"));
         userInfo.setAge(32);
         userInfo.setBlogUrl("https://chenzy.com");
         userInfo.setBlogRemark("您好，欢迎访问 chenzy的博客");
@@ -88,7 +93,8 @@ public class UserController
         //返回结果
         return userInfo.getUserId() > 0 ? true : false;
     }
- 
+
+    @RequiresPermissions("user:update")
     @ApiOperation(value = "修改用户")
     @ResponseBody
     @PutMapping("updateUser")
@@ -97,7 +103,7 @@ public class UserController
         com.czy.entity.UserInfo userInfo = new com.czy.entity.UserInfo();
         userInfo.setUserId(userId);
         userInfo.setUserName("chenzy");
-        userInfo.setPassword("123456");
+        userInfo.setPassword(MD5Utils.encrypt(userInfo.getUserName(), "123456"));
         userInfo.setAge(age);
         userInfo.setBlogUrl("https://chenzy.com");
         userInfo.setBlogRemark("您好，欢迎访问 chenzy的博客");
@@ -108,7 +114,8 @@ public class UserController
         //返回结果
         return true;
     }
- 
+
+    @RequiresPermissions("user:delete")
     @ApiOperation(value = "删除用户")
     @ResponseBody
     @DeleteMapping("deleteUser")
