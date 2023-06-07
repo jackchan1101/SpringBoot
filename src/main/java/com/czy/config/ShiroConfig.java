@@ -1,9 +1,12 @@
 package com.czy.config;
 
 import com.czy.shiro.ShiroRealm;
+import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
+import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.apache.shiro.web.servlet.SimpleCookie;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -30,7 +33,7 @@ public class ShiroConfig {
 		filterChainDefinitionMap.put("/druid/**", "anon");
 		filterChainDefinitionMap.put("/logout", "logout");
 		filterChainDefinitionMap.put("/", "anon");
-		filterChainDefinitionMap.put("/**", "authc");
+		filterChainDefinitionMap.put("/**", "user");
 		
 		shiroFilterFactoryBean.setFilterChainDefinitionMap(filterChainDefinitionMap);
 		
@@ -41,13 +44,37 @@ public class ShiroConfig {
     public SecurityManager securityManager(){  
        DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
        securityManager.setRealm(shiroRealm());
-       return securityManager;  
+	   securityManager.setRememberMeManager(rememberMeManager());
+       return securityManager;
     }  
 	
 	@Bean  
     public ShiroRealm shiroRealm(){
        ShiroRealm shiroRealm = new ShiroRealm();  
        return shiroRealm;  
-    }  
-	
+    }
+
+	/**
+	 * cookie对象
+	 * @return
+	 */
+	public SimpleCookie rememberMeCookie() {
+		// 设置cookie名称，对应login.html页面的<input type="checkbox" name="rememberMe"/>
+		SimpleCookie cookie = new SimpleCookie("rememberMe");
+		// 设置cookie的过期时间，单位为秒，这里为一天
+		cookie.setMaxAge(86400);
+		return cookie;
+	}
+
+	/**
+	 * cookie管理对象
+	 * @return
+	 */
+	public CookieRememberMeManager rememberMeManager() {
+		CookieRememberMeManager cookieRememberMeManager = new CookieRememberMeManager();
+		cookieRememberMeManager.setCookie(rememberMeCookie());
+		// rememberMe cookie加密的密钥
+		cookieRememberMeManager.setCipherKey(Base64.decode("3AvVhmFLUs0KTA3Kprsdag=="));
+		return cookieRememberMeManager;
+	}
 }

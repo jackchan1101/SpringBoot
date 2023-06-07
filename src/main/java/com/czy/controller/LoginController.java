@@ -26,9 +26,9 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public R<Void> login(String username, String password) {
+    public R<Void> login(String username, String password, Boolean rememberMe) {
         password = MD5Utils.encrypt(username, password);
-        UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+        UsernamePasswordToken token = new UsernamePasswordToken(username, password, rememberMe);
         Subject subject = SecurityUtils.getSubject();
         try {
             subject.login(token);
