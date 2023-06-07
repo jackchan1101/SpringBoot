@@ -25,6 +25,7 @@
 		<knife4j.version>3.0.2</knife4j.version>
 		<mysql-connector.version>8.0.20</mysql-connector.version>
 		<spring-cache.version>2.3.2.RELEASE</spring-cache.version>
+		<shiro-spring.version>1.10.0</shiro-spring.version>
 	</properties>
 	
 	<dependencies>
@@ -96,6 +97,12 @@
 		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
+		</dependency>
+		<!-- shiro-spring -->
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-spring</artifactId>
+			<version>${shiro-spring.version}</version>
 		</dependency>
 		<!--工具类-->
 		<dependency>
