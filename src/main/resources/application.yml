@@ -5,6 +5,11 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
+  #缓存管理器
+  cache:
+    type: ehcache
+    ehcache:
+      config: classpath:ehcache.xml #缓存加载配置文件
   #使用Thymeleaf模板引擎
   thymeleaf:
     mode: HTML5
