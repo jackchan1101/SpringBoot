@@ -26,6 +26,7 @@
 		<mysql-connector.version>8.0.20</mysql-connector.version>
 		<spring-cache.version>2.3.2.RELEASE</spring-cache.version>
 		<shiro-spring.version>1.10.0</shiro-spring.version>
+		<pay-java.version>2.14.5</pay-java.version>
 	</properties>
 	
 	<dependencies>
@@ -103,6 +104,18 @@
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
 			<version>${shiro-spring.version}</version>
+		</dependency>
+		<!-- 三方支付服务web支持 -->
+		<dependency>
+			<groupId>com.egzosn</groupId>
+			<artifactId>pay-java-web-support</artifactId>
+			<version>${pay-java.version}</version>
+		</dependency>
+		<!-- 微信支付 -->
+		<dependency>
+			<groupId>com.egzosn</groupId>
+			<artifactId>pay-java-wx</artifactId>
+			<version>${pay-java.version}</version>
 		</dependency>
 		<!--工具类-->
 		<dependency>
