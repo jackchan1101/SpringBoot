@@ -119,11 +119,16 @@
 			<artifactId>pay-java-wx</artifactId>
 			<version>${pay-java.version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.github.theborakompanioni/thymeleaf-extras-shiro -->
+		<!-- 用户权限标签 -->
 		<dependency>
 			<groupId>com.github.theborakompanioni</groupId>
 			<artifactId>thymeleaf-extras-shiro</artifactId>
 			<version>${thymeleaf-extras.version}</version>
+		</dependency>
+		<!-- email -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 		<!--工具类-->
 		<dependency>

@@ -22,6 +22,17 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/spring_boot_alibaba?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+  mail:
+    host: smtp.163.com
+    username: cytus2019@163.com
+    password: IRNIWMABONCAXVRE
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
 
 #MyBatis配置
 mybatis:
