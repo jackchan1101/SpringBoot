@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+    <meta name="author" content="chenzy的博客">
+    <style>
+        table { border-collapse: collapse; margin-bottom: 10px}
+        table,table tr th, table tr td { border:1px solid #000000; padding: 5px 10px;}
+    </style>
+</head>
+<body>
+
+<div align="center">
+    <table>
+        <caption>用户信息</caption>
+        <tr>
+            <th>用户ID：</th>
+            <td th:text="${userInfo.userId}"></td>
+        </tr>
+        <tr>
+            <th>用户名称：</th>
+            <td th:text="${userInfo.userName}"></td>
+        </tr>
+        <tr>
+            <th>年龄：</th>
+            <td th:text="${userInfo.age}"></td>
+        </tr>
+        <tr>
+            <th>博客地址：</th>
+            <td th:text="${userInfo.blogUrl}"></td>
+        </tr>
+        <tr>
+            <th>备注信息：</th>
+            <td th:text="${userInfo.blogRemark}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

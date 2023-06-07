@@ -13,7 +13,7 @@ class MyApplicationTests {
 
 	@Test
 	void test() {
-		//加密配置文件中的敏感信息
+		// 加密配置文件中的敏感信息
 		BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
 		basicTextEncryptor.setPassword("key-czy");
 		String encrypt = basicTextEncryptor.encrypt("123456");

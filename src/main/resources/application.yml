@@ -5,6 +5,29 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
+  #使用Thymeleaf模板引擎
+  thymeleaf:
+    mode: HTML5
+    encoding: UTF-8
+    cache: false  #使用Thymeleaf模板引擎，关闭缓存
+    servlet:
+      content-type: text/html
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot_alibaba?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+
+#MyBatis配置
+mybatis:
+  type-aliases-package: com.czy.entity #别名定义
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #指定 MyBatis 所用日志的具体实现，未指定时将自动查找
+    map-underscore-to-camel-case: true #开启自动驼峰命名规则（camel case）映射
+    lazy-loading-enabled: true #开启延时加载开关
+    aggressive-lazy-loading: false #将积极加载改为消极加载（即按需加载）,默认值就是false
+    #lazy-load-trigger-methods: "" #阻挡不相干的操作触发，实现懒加载
+    cache-enabled: true #打开全局缓存开关（二级环境），默认值就是true
 
 # 自定义配置
 com:
