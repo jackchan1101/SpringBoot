@@ -20,7 +20,7 @@ public interface UserMapper {
     /**
      * 新增用户，并获取自增主键
      */
-    @Insert("INSERT INTO t_user(user_name,age,blog_url,blog_remark) VALUES(#{userName},#{age},#{blogUrl},#{blogRemark});")
+    @Insert("INSERT INTO t_user(user_name,password,age,blog_url,blog_remark) VALUES(#{userName},#{password},#{age},#{blogUrl},#{blogRemark});")
     @Options(useGeneratedKeys = true, keyColumn = "user_id", keyProperty = "userId")
     int insertUser(UserInfo userInfo);
  

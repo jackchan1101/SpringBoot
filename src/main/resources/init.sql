@@ -15,6 +15,9 @@ CREATE TABLE `t_user`
 
 INSERT INTO `t_user` (`user_id`, `user_name`, `password`, `age`, `blog_url`, `blog_remark`)
 VALUES (1, 'chenzy', 'dd853dffb1395a98e26d4e7062545ee4', 18, 'https://chenzy.com', '您好，欢迎访问 chenzy的博客');
+INSERT INTO `t_user` (`user_id`, `user_name`, `password`, `age`, `blog_url`, `blog_remark`)
+VALUES (2, 'chenzy1', '4e825ce25ee5ffb7e23c86163e46a825', 32, 'https://chenzy.com', '您好，欢迎访问 chenzy的博客');
+
 
 -- 权限表
 CREATE TABLE `t_permission`

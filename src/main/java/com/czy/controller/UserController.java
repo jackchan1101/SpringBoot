@@ -77,11 +77,11 @@ public class UserController
     @ApiOperation(value = "新增用户")
     @ResponseBody
     @PostMapping("insertUser")
-    public boolean insertUser()
+    public boolean insertUser(String userName)
     {
         //创建新用户
         com.czy.entity.UserInfo userInfo = new com.czy.entity.UserInfo();
-        userInfo.setUserName("chenzy");
+        userInfo.setUserName(userName);
         userInfo.setPassword(MD5Utils.encrypt(userInfo.getUserName(), "123456"));
         userInfo.setAge(32);
         userInfo.setBlogUrl("https://chenzy.com");
